@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Saud's CV</title>
+    <link rel="icon" href="C:\Users\ASUS\Dropbox\PC\Desktop\protfolio\CV_logo_icon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+    <div class="hero">
+        <nav>
+            <img src="logoo.png" class="logo">
+            <ul>
+                <li><a href="#" data-page="home.html">Home</a></li>
+                <li><a href="#" data-page="about.html">About</a></li>
+                <li><a href="#" data-page="Achievements.html">Achievements</a></li>
+                <li><a href="#" data-page="services.html">Services</a></li>
+                <li><a href="#" data-page="contact.html">Contact Saud</a></li>
+            </ul>
+            <img src="moon.png" id="icon">
+        </nav>
+
+        <div class="info">
+            <h1>I'm <span>Saud</span> Alhmad</h1>
+            <p>This is my official CV site.</p>
+            <a href="CV.pdf" download="CV">Download CV</a>
+        </div>
+
+        <div class="img-box">
+            <img src="Background.png" class="back-img">
+            <img src="C:\Users\ASUS\Dropbox\PC\Desktop\protfolio\1.jpg" class="main-img">
+        </div>
+    </div>
+
+    <!-- js -->
+    <script>
+        var icon = document.getElementById("icon");
+
+        icon.onclick = function() {
+            document.body.classList.toggle("dark-theme");
+            if (document.body.classList.contains("dark-theme")) {
+                icon.src = "sun.png";
+            } else {
+                icon.src = "moon.png";
+            }
+        }
+
+        // JavaScript to handle navigation
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.getAttribute('data-page');
+                window.location.href = page;
+            });
+        });
+    </script>
+</body>
+</html>

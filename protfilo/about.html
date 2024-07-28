@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Saud Website</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .description {
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            opacity: 0;
+        }
+
+        .highlight {
+            color: #395636; /* Change to the desired color */
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        .toggle-btn {
+            margin-top: 10px;
+            background: #395636;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background: #729c6d;
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s, background-color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            color: white;
+            background-color: #395636;
+        }
+
+        .dark-mode nav ul li a {
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Saud</a></li>
+        </ul>
+        <button class="toggle-btn" id="toggle-btn">Toggle Dark Mode</button>
+    </nav>
+    <div class="description">
+        <h1>Meet <span class="highlight">Saud</span> Alhmad</h1>
+        <p id="paragraph-1">Saud Alhmad is a multi-talented individual who has excelled in various fields. As a professional athlete, he has made significant strides in both tennis and football, demonstrating exceptional skill and dedication on the court and the field.</p>
+        <p id="paragraph-2">In addition to his sports career, Saud is also an experienced coder. He has a deep understanding of various programming languages and has successfully completed numerous projects, showcasing his ability to solve complex problems with innovative solutions.</p>
+        <p id="paragraph-3">Saud's diverse skill set is further highlighted by his experience as a barista. During his time working in a coffee shop, he mastered the art of brewing the perfect cup of coffee, delighting customers with his knowledge and passion for coffee-making.</p>
+        <p id="paragraph-4">Saud's unique combination of athletic prowess, technical expertise, and hospitality experience makes him a versatile and dynamic individual, capable of excelling in any endeavor he undertakes.</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        const toggleBtn = document.getElementById('toggle-btn');
+        const body = document.body;
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                toggleBtn.textContent = 'Toggle Light Mode';
+            } else {
+                toggleBtn.textContent = 'Toggle Dark Mode';
+            }
+        });
+
+        // JavaScript to handle the text transition
+        const paragraphs = document.querySelectorAll('.description p');
+        paragraphs.forEach((p, index) => {
+            setTimeout(() => {
+                p.classList.add('fade-in');
+            }, index * 500); // delay each paragraph by 500ms
+        });
+    </script>
+</body>
+</html>

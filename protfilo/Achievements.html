@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Saud Achievements</title>
+    <style>
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+
+        .dark-mode {
+            background-color: #333;
+            color: white;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s, background-color 0.3s;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-style: bold;
+        }
+
+        nav ul li a:hover {
+            color: white;
+            background-color: #395636;
+        }
+
+        .dark-mode nav ul li a {
+            color: white;
+        }
+
+        .toggle-btn {
+            margin-top: 10px;
+            background: #395636;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background: #729c6d;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            max-width: 600px;
+        }
+
+        .highlight {
+            color: #395636;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="achievements.html">Achievements</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact Saud</a></li>
+        </ul>
+        <button class="toggle-btn" id="toggle-btn">Toggle Dark Mode</button>
+    </nav>
+    <h1><span class="highlight">Saud</span> Achievements</h1>
+    <p>Saud Alhamd has achieved the first place in lawn tennis three times and secured the second place five times. He has joined the Saudi national team twice. Saud has been playing in the Premier League with Al-Fals Zulfi Club for nine consecutive years, contributing significantly to their qualification.</p>
+    <p>حقق سعود الحمد المركز الأول في لعبة التنس الأرضي ثلاث مرات والمركز الثاني خمس مرات. انضم إلى المنتخب السعودي مرتين. لعب سعود في الدوري الممتاز مع نادي الفلس نادي الزلفي لمدة تسع سنوات متتالية، وساهم بشكل كبير في تأهلهم</p>
+
+    <!-- JavaScript -->
+    <script>
+        const toggleBtn = document.getElementById('toggle-btn');
+        const body = document.body;
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                toggleBtn.textContent = 'Toggle Light Mode';
+            } else {
+                toggleBtn.textContent = 'Toggle Dark Mode';
+            }
+        });
+       
+        const paragraphs = document.querySelectorAll('.description p');
+        paragraphs.forEach((p, index) => {
+            setTimeout(() => {
+                p.classList.add('fade-in');
+            }, index * 500); // delay each paragraph by 500ms
+        });
+    </script>
+</body>
+</html>
